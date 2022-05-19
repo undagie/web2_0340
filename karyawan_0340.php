@@ -6,12 +6,21 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Halaman Data Karyawan</title>
+    <style>
+        @media print {
+
+            .no-print,
+            .no-print * {
+                display: none !important;
+            }
+        }
+    </style>
 </head>
 
 <body>
     <h2>Data Karyawan</h2>
 
-    <a href="tambah_0340.php" style="background-color: #009900; color: #fff; padding: 0.4% 0.8%; border-radius: 2px; text-decoration: none;">Tambah Data</a>
+    <a href="tambah_0340.php" class="no-print" style="background-color: #009900; color: #fff; padding: 0.4% 0.8%; border-radius: 2px; text-decoration: none;">Tambah Data</a>
 
     <br><br>
 
@@ -24,7 +33,7 @@
             <th>Tempat Lahir</th>
             <th>Tanggal Lahir</th>
             <th>Jenis Kelamin</th>
-            <th>Opsi</th>
+            <th class="no-print">Opsi</th>
         </tr>
 
         <?php
@@ -50,7 +59,7 @@
                     <td><?= $hasil['tmp_lahir']; ?></td>
                     <td style="text-align: center;"><?= $hasil['tgl_lahir']; ?></td>
                     <td style="text-align: center;"><?= $hasil['jk']; ?></td>
-                    <td>
+                    <td class="no-print">
                         <a href="edit_0340.php?kode=<?= $hasil['kd_karyawan']; ?>">Edit</a> |
                         <a href="hapus_0340.php?kode=<?= $hasil['kd_karyawan']; ?>">Hapus</a>
                     </td>
@@ -62,6 +71,13 @@
         };
         ?>
     </table>
+
+    <br>
+
+    <a href="cetak_0340.php" class="no-print" style="background-color: #347aeb; color: #fff; padding: 0.4% 0.8%; border-radius: 2px; text-decoration: none;" target="_blank">Cetak PDF</a>
+    <a href="cetakexcel_0340.php" class="no-print" style="background-color: #347aeb; color: #fff; padding: 0.4% 0.8%; border-radius: 2px; text-decoration: none;" target="_blank">Cetak Excel</a>
+    <a href="#" onclick="window.print();" class="no-print" style="background-color: #347aeb; color: #fff; padding: 0.4% 0.8%; border-radius: 2px; text-decoration: none;">Cetak</a>
+
 </body>
 
 </html>
